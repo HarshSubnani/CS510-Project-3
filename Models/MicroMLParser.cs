@@ -37,7 +37,7 @@ namespace MicroML
                 return new FunctionNode(param, new IdentifierNode(body));
             }
 
-            return new IdentifierNode(input); // fallback
+            return new IdentifierNode(input);
         }
     }
 }
