@@ -1,15 +1,58 @@
 ﻿@page
 @model MicroML.Pages.IndexModel
+@{
+    ViewData["Title"] = "MicroML AST Viewer";
+}
+
+<style>
+  .ast-tree {
+      list-style-type: none;
+      padding-left: 20px;
+      font-family: Arial, sans-serif;
+  }
+
+  .ast-tree li {
+      margin: 4px 0;
+      position: relative;
+  }
+
+  .ast-tree li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      width: 10px;
+      height: 1px;
+      background-color: #888;
+  }
+
+  .ast-tree li > ul {
+      margin-left: 20px;
+  }
+
+  .ast-tree .value {
+      font-weight: bold;
+  }
+
+  .ast-tree li {
+      margin: 5px 0;
+  }
+</style>
+
+
+
+<h2>MicroML AST Viewer</h2>
 
 <form method="post">
     <textarea name="CodeInput" rows="10" cols="60">@Model.CodeInput</textarea><br />
-    <button type="submit">Generate an AST</button>
+    <button type="submit">Generate AST</button>
 </form>
 
 @if (Model.AstHtml != null)
 {
     <div>
         <h2>AST Output:</h2>
-        @Html.Raw(Model.AstHtml)
+        @Html.Raw(Model.AstHtml)  
     </div>
 }
+
