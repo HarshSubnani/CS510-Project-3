@@ -1,10 +1,15 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@model MicroML.Pages.IndexModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form method="post">
+    <textarea name="CodeInput" rows="10" cols="60">@Model.CodeInput</textarea><br />
+    <button type="submit">Generate an AST</button>
+</form>
+
+@if (Model.AstHtml != null)
+{
+    <div>
+        <h2>AST Output:</h2>
+        @Html.Raw(Model.AstHtml)
+    </div>
+}
