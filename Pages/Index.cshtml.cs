@@ -14,7 +14,6 @@ namespace MicroML.Pages
         {
             if (!string.IsNullOrWhiteSpace(CodeInput))
             {
-                // Parse the input and generate AST
                 var ast = MicroMLParser.Parse(CodeInput); 
                 AstHtml = AstRenderer.RenderToHtml(ast);
             }
