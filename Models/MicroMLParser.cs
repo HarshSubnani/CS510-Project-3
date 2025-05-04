@@ -1,28 +1,8 @@
 using System;
-using System.Collections.Generic;
+using MicroML.Models;
 
-namespace MicroML
+namespace MicroML.Services
 {
-    public abstract class AstNode { }
-
-    public class IdentifierNode : AstNode
-    {
-        public string Name { get; set; }
-        public IdentifierNode(string name) => Name = name;
-    }
-
-    public class FunctionNode : AstNode
-    {
-        public string Param { get; set; }
-        public AstNode Body { get; set; }
-
-        public FunctionNode(string param, AstNode body)
-        {
-            Param = param;
-            Body = body;
-        }
-    }
-
     public static class MicroMLParser
     {
         public static AstNode Parse(string input)
